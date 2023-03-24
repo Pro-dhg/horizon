@@ -1,0 +1,51 @@
+server:
+  port: 8882
+spring:
+  datasource:
+    url: jdbc:clickhouse://1.15.66.155:8123?socket_timeout=300000&dataTransferTimeout=300000
+    username: data_manager
+    password: mHU8DkAFas3fRZ
+    driver-class-name: ru.yandex.clickhouse.ClickHouseDriver
+    hikari:
+      connection-timeout: 30000
+    druid:
+      validation-query: select 1
+      test-on-borrow: false
+  servlet:
+    multipart:
+      max-file-size: 2GB
+      max-request-size: 2GB
+  mvc:
+    async:
+      request-timeout: 5000000
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+# 日志配置
+logging:
+  #  level:
+  #    cn.ac.caict.ds.gdns.mapper: debug
+  config: classpath:logback.xml
+
+file:
+  path: classpath:/file
+
+
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*Mapper.xml
+  #实体扫描，多个package用逗号或者分号分隔
+  typeAliasesPackage: com.example.hong.entity
+  configuration:
+    cache-enabled: true
+    lazy-loading-enabled: true
+    multiple-result-sets-enabled: true
+    use-column-label: true
+    default-executor-type: reuse
+    default-statement-timeout: 25000
+
+pullTask:
+  # 是否开启数据同步
+  pull: false
+  behavior:
+    scheduledCron: '*/5 * * * * ?'
