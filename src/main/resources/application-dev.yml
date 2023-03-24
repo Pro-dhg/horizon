@@ -25,7 +25,6 @@ spring:
 # 日志配置
 logging:
   #  level:
-  #    cn.ac.caict.ds.gdns.mapper: debug
   config: classpath:logback.xml
 
 file:

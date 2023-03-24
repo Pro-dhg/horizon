@@ -6,7 +6,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 /**
- * @ClassName CreateZoneFileJob
+ * @ClassName PullBehaviorDataJob
  * @Author Aiden
  * @Version 1.0
  * @Date 2023/3/16 16:22
