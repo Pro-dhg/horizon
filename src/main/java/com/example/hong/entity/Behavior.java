@@ -28,12 +28,21 @@ public class Behavior implements Serializable {
     @TableId(value = "id")
     private String id;
 
-    @TableField(value = "姓名")
+    /**
+     * 姓名
+     */
+    @TableField(value = "name")
     private String name;
 
-    @TableField(value = "解析时间")
+    /**
+     * 解析时间
+     */
+    @TableField(value = "parse_timestamp")
     private Date parseTimestamp;
 
-    @TableField(value = "行为")
+    /**
+     * 行为
+     */
+    @TableField(value = "behavior")
     private String behavior;
 }

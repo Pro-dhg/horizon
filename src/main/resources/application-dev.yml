@@ -1,5 +1,5 @@
 server:
-  port: 8882
+  port: 31212
 spring:
   datasource:
     url: jdbc:clickhouse://1.15.66.155:8123?socket_timeout=300000&dataTransferTimeout=300000
