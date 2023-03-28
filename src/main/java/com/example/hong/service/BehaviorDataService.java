@@ -2,6 +2,7 @@ package com.example.hong.service;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.hong.entity.VO.BehaviorVO;
+import com.example.hong.param.BehaviorAddParam;
 import com.example.hong.param.BehaviorQueryParam;
 
 /**
@@ -13,4 +14,6 @@ import com.example.hong.param.BehaviorQueryParam;
  */
 public interface BehaviorDataService {
     Page<BehaviorVO> queryBehavior(BehaviorQueryParam param);
+
+    void addBehavior(BehaviorAddParam behaviorAddParam) throws InterruptedException;
 }

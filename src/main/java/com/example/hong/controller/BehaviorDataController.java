@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.hong.entity.VO.ActiveVO;
 import com.example.hong.entity.VO.BehaviorVO;
 import com.example.hong.param.ActiveParam;
+import com.example.hong.param.BehaviorAddParam;
 import com.example.hong.param.BehaviorQueryParam;
 import com.example.hong.param.PageParam;
 import com.example.hong.service.ActiveDataService;
@@ -36,8 +37,13 @@ public class BehaviorDataController {
     }
 
     @GetMapping("/active")
-    public Page<ActiveVO> queryActive(@Validated ActiveParam param){
+    public Page<ActiveVO> queryActive(ActiveParam param){
         return activeDataService.queryActive(param);
+    }
+
+    @PostMapping("/add")
+    public void addBehavior(@RequestBody @Validated BehaviorAddParam behaviorAddParam) throws InterruptedException {
+        behaviorDataService.addBehavior(behaviorAddParam);
     }
 
 }
