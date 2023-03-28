@@ -30,7 +30,7 @@ public class ExecutorDynamicService {
     private Integer maximumPoolSize;
 
     public static ThreadPoolExecutor EXECUTOR_SERVICE = new ThreadPoolExecutor(Math.min(maxPoolSize, 5), Math.min(maxPoolSize, 10),
-            10L, TimeUnit.SECONDS, new LinkedBlockingQueue<>(5000), new NamedThreadFactory("BNS", false));
+            10L, TimeUnit.SECONDS, new LinkedBlockingQueue<>(5000), new NamedThreadFactory("HORIZON", false));
 
     @PostConstruct
     private void init() {
