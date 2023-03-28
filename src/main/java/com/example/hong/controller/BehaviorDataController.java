@@ -43,7 +43,7 @@ public class BehaviorDataController {
         behaviorDataService.addBehavior(behaviorAddParam);
     }
     @PostMapping("/multi-thread-add")
-    public void multiThreadAddActive(@RequestBody @Validated ActiveAddParam activeParam) throws InterruptedException {
+    public void multiThreadAddActive(@RequestBody @Validated ActiveAddParam activeParam)  {
         activeDataService.multiThreadAddActive(activeParam);
     }
 
