@@ -3,10 +3,7 @@ package com.example.hong.controller;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.hong.entity.VO.ActiveVO;
 import com.example.hong.entity.VO.BehaviorVO;
-import com.example.hong.param.ActiveParam;
-import com.example.hong.param.BehaviorAddParam;
-import com.example.hong.param.BehaviorQueryParam;
-import com.example.hong.param.PageParam;
+import com.example.hong.param.*;
 import com.example.hong.service.ActiveDataService;
 import com.example.hong.service.BehaviorDataService;
 import org.springframework.validation.annotation.Validated;
@@ -44,6 +41,10 @@ public class BehaviorDataController {
     @PostMapping("/add")
     public void addBehavior(@RequestBody @Validated BehaviorAddParam behaviorAddParam) throws InterruptedException {
         behaviorDataService.addBehavior(behaviorAddParam);
+    }
+    @PostMapping("/multi-thread-add")
+    public void multiThreadAddActive(@RequestBody @Validated ActiveAddParam activeParam) throws InterruptedException {
+        activeDataService.multiThreadAddActive(activeParam);
     }
 
 }

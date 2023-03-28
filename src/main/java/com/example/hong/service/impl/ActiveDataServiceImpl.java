@@ -2,17 +2,16 @@ package com.example.hong.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.example.hong.config.ExecutorDynamicService;
 import com.example.hong.entity.DayActive;
 import com.example.hong.entity.VO.ActiveVO;
-import com.example.hong.entity.VO.BehaviorVO;
 import com.example.hong.mapper.ActiveMapper;
+import com.example.hong.param.ActiveAddParam;
 import com.example.hong.param.ActiveParam;
-import com.example.hong.param.PageParam;
 import com.example.hong.service.ActiveDataService;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
-
+import java.util.Date;
 import java.util.stream.Collectors;
 
 /**
@@ -43,4 +42,34 @@ public class ActiveDataServiceImpl implements ActiveDataService {
         result.setRecords(dayActivePage.getRecords().stream().map(ActiveVO::valueOf).collect(Collectors.toList()));
         return  result ;
     }
+
+    @Override
+    public void multiThreadAddActive(ActiveAddParam activeParam) {
+        ExecutorDynamicService.EXECUTOR_SERVICE.submit(new addActiveTask(activeParam));
+    }
+
+    class addActiveTask implements Runnable {
+
+        private final ActiveAddParam activeParam;
+
+        public addActiveTask(ActiveAddParam activeParam) {
+            this.activeParam = activeParam;
+        }
+
+        @Override
+        public void run() {
+            try {
+                System.out.println(activeParam);
+                activeMapper.insert(DayActive.builder()
+                        .id(activeParam.getId())
+                        .parseTimestamp(new Date())
+                        .build());
+            } catch (Exception e) {
+                System.err.println(e);
+            } finally {
+                System.out.println("111");
+            }
+        }
+    }
+
 }

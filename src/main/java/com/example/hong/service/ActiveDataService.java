@@ -2,8 +2,8 @@ package com.example.hong.service;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.hong.entity.VO.ActiveVO;
+import com.example.hong.param.ActiveAddParam;
 import com.example.hong.param.ActiveParam;
-import com.example.hong.param.PageParam;
 
 /**
  * @ClassName ActiveDataService
@@ -14,4 +14,6 @@ import com.example.hong.param.PageParam;
  */
 public interface ActiveDataService {
     Page<ActiveVO> queryActive(ActiveParam param);
+
+    void multiThreadAddActive(ActiveAddParam activeParam);
 }

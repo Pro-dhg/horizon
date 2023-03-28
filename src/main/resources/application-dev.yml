@@ -48,3 +48,9 @@ pullTask:
   pull: false
   behavior:
     scheduledCron: '*/5 * * * * ?'
+
+executor:
+  # 公共线程池核心线程数
+  corePoolSize: 5
+  # 公共线程池最大线程数
+  maximumPoolSize: 10

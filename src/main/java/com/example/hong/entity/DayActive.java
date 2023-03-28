@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * @ClassName DayActive
@@ -30,6 +31,6 @@ public class DayActive implements Serializable {
      * 时间
      */
     @TableField(value = "parse_timestamp")
-    private String parseTimestamp;
+    private Date parseTimestamp;
 
 }
