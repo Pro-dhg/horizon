@@ -9,10 +9,10 @@
         <relativePath/>
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>air-zone</artifactId>
+    <artifactId>horizon</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>air-zone</name>
-    <description>air-zone</description>
+    <name>horizon</name>
+    <description>horizon</description>
     <properties>
         <java.version>11</java.version>
         <okhttp3.version>4.8.1</okhttp3.version>
@@ -169,7 +169,7 @@
 
     <build>
         <!-- 项目最终打包成的名字 -->
-        <finalName>air-zone</finalName>
+        <finalName>horizon</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
